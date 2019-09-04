@@ -77,3 +77,47 @@ Aqui ele vai retornar a função loadProducts na forma de arrow function para te
 Executar a api com o get --> api.get('/products');
 
 Com isso tem acesso ao objeto que tem a resposta da chamada em 'data'. Dentro de 'data ficam os docs onde estão os produtos que se quer mostrar na tela.
+
+# Armazenando no state
+
+No React, quando se quer armazenar informações puxadas de uma api, isso não se faz da forma tradicional, armazenando em uma variável. Para isso se usa o state.
+
+#### state
+
+O state é uma variável que armazena um objeto. É nele que vamos armazenar as informações buscadas em uma api. Aqui, o objeto do state vai ter a propriedade 'products' que é um array vazio que vai ser preenchido.
+
+É preciso armazenar em um state, e não em uma variável qualquer porque assim é possível fazer com que o método render() dependa do state, escute as alterações ocorridas no state. Assim, o render() vai executar automaticamente quando houver alterações no state.
+
+Aqui, vamos mostrar no render a contagem de quantos produtos se tem na api.
+
+Considerando que o state seja:
+
+      state = { products: [] }
+
+temos
+
+     return <h1>Contagem de produtos: {this.state.products.length}</h1>
+
+Para preencher a variável products usamos o método setState(). Então:
+
+    this.setState({ products: response.data.docs });
+
+Agora o render vai imprimir automaticamente na page a mensagem:
+
+    Contagem de produtos: 10
+
+Isso é possível porque o render 'ouviu' a alteração no state e executou o return.
+
+#### imprimir na tela uma lista com o título de cada produto buscado na api
+
+render() {
+
+return ...
+
+    this.state.products.map(product => (
+    <h2 key={product_id}>{product.title}</h2>
+    ))}
+
+### key
+
+No React é necessário usar uma 'key' com um valor para cada informação. Aqui utilizamos uma key com um valor único para cada produto da api.
