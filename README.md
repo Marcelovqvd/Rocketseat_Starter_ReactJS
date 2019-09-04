@@ -121,3 +121,60 @@ return ...
 ### key
 
 No React é necessário usar uma 'key' com um valor para cada informação. Aqui utilizamos uma key com um valor único para cada produto da api.
+
+# Página anterior/próxima
+
+Criar funcionalidades de passar e voltar páginas
+
+Criar buttons em src/pages/main/index.js
+
+os buttons devem ter a disabled property;
+
+Para chamar método sempre que o usário clicar em algum button, em javascript puro seria onclick.
+
+No React deve ser onClik (camel case)
+
+então os buttons ficariam com o seguinte código:
+
+     <button disabled={page === 1}onClick={this.prevPage}>Anterior</button>
+
+     <button disabled={page === productInfo.pages}onClick={this.nextPage}>Próxima</button>
+
+this.nextPage e this.prevPage são os métodos a serem chamados ao clique
+
+É preciso usar as informações de paginação da api. Então devemos armazená-los no state.
+Para isso, criamos a propriedade productInfo no state.
+
+Em loadProducts criar const { docs, ... productInfo} usando 'rest operator'. Aqui, a variável docs tem os produtos e a variável productInfo tem o resto das informações.
+
+Agora tem que passar estas variáveis para o this.setState()
+
+Voltabdo às funções:
+
+nextPage() -> buscar a página atual e o productInfo;
+
+    const {page, productInfo} = this.state;
+
+verificar em qual página está
+
+    if(page === productInfo.pages)
+
+Se já esiver na última página -> return (não faz nada);
+
+Se não estiver na última página
+
+    const pageNumber = page + 1;
+
+    this.loadProducts(pageNumber)
+
+prevPage() ->
+
+    const pageNumber = page -1;
+
+Então
+
+    loadProducts = async (page = 1) => {
+      const response = await api.get(`/products?page=${page}`);
+      const { docs, ...productInfo } = response.data;
+      this.setState({ products: docs, productInfo, page });
+    };
