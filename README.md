@@ -178,3 +178,63 @@ Então
       const { docs, ...productInfo } = response.data;
       this.setState({ products: docs, productInfo, page });
     };
+
+# Configurando navegação
+
+Biblioteca para navegação
+
+    $ yarn add react-router-dom
+
+Criar src/routes.js
+
+Importar componentes do react-router-dom
+
+    import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+- BrowserRouter: define que utilizamos as rotas através de um browser
+- Switch: permite que apenas uma rota seja chamada por vez. Então um componente só vai ser exibido quando uma rota for acessada. Aqui, apenas uma página vai ser exibida por rota.
+- Route: rotas.
+
+  import Main from './pages/main';
+
+Criar componente (forma de função)
+
+const Routes = () => ( código )
+
+A primeira rota vai ser acessada em localhost:3000
+
+    <Route path="/" component={Main} />
+
+O componente Main vai ser mostrado
+
+importar rotas em App.js
+
+em const App = () => (
+mostrar <Routes/> em vez de <Main/>
+
+Agora o roteamento já está configrado
+
+Criar src/pages/product/index.js
+
+Em index.js criar classe Product
+
+Criar nova rota em routes.js
+
+    <Route path="/products/:id" component={Product} />
+
+Mas aqui o React considera que o produto começa com "/" então, mesmo que fizer localhost:3000/products/:id, ele vai parar na 1ª rota (path="/")
+Então é preciso adicionar a propriedade exact:
+
+    < Route exact path="/" component= {Main} />
+
+Agora é preciso redirecionar o usuário para a segunda rota
+
+Em src/main/index.js
+
+    import { Link } from 'react-router-dom';
+
+Link é um componente do 'react-router-dom'.
+
+Substituir a tag <a> do render() className="product-list" por Link e o href por 'to';
+
+    <Link to={`/products/${product.id}`}>Acessar</Link>
