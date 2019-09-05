@@ -1,8 +1,48 @@
 # Huntweb - Projeto Starter da Rocketseat
 
+Este Readme consiste em um passo a passo das aulas do curso Starter ReactJs da Rocketseat. Cada commit é referente a uma aula.
+
+## ReactJs
+
+    É biblioteca que nãoi faz mais que o Javascript puro. Porém, o faz de forma mais organizada. Serve para manipular a DOM. É muito utilizado para construção de SPA.
+
+    Com o uso do React o back end não vai retornar os dados já formatados. Vai retorná-los em formato de JSON. Estrutura de dados que seja legível para ser utilizada em formnato de API Rest. então o back end da aplicação vai estar totalmente separado do front end. O front end vai consumir os dados do back end para conseguir montar a interface e mostrar as informações para o usuário.
+
+    Isso traz muita flexibilidade para trabalharmos com a parte interativa da aplicação, como por exemplo permitir que o usuário carregue algo na tela. Além de deixar o front end bastante organizado, pois utiliza a componentização.
+
+    #### sintaxe
+
+    Conforme é mostrado na documentação oficial do React, quase todos os componentes vão ser em formato de classe. A classe vai extender o Component que tem na classe React.
+
+    Tem o método obrigatório render() que renderiza um arquivo JSX.
+
+    O JSX tem a sintaxe parecida com o HTML mas permite mostrar variáveis e incluir código Javascript dentro do HTML.
+
+    A função ReactDom.render() vai renderizar o componente
+
+## Criando Projeto
+
+Instalar NodeJs e yarn (usar yarn em vez de mpn).
+
+Instalar o pacote create-react-app com yarn
+
     $ yarn global add create-react-app
 
-    $ create-react-app nomedaPasta
+O create-react-app já vem com a parte de transpilação configurada. Então não precisa configurar Webpack e Babel.
+
+Criar o projeto:
+
+\$ create-react-app nomedoProjeto
+
+Para rodar o servidor:
+
+    $ yarn start
+
+    O create-react-app já vem com a parte de transpilação configurada. Então não precisa configurar Webpack e Babel.
+
+    Criar o projeto:
+
+    $ create-react-app nomedoProjeto
 
 O create-react-app vem com a transpilação configurada. Então não é preciso se preocupar em configurar Babel e Webpack.
 
@@ -48,7 +88,7 @@ Buscar produtos da API e exibí-los em tela
 
 Para poder acessar informações de uma API Rest vamos usar a biblioteca axios
 
-## Axios
+#### Axios
 
     $ yarn add axios
 
@@ -238,3 +278,47 @@ Link é um componente do 'react-router-dom'.
 Substituir a tag <a> do render() className="product-list" por Link e o href por 'to';
 
     <Link to={`/products/${product.id}`}>Acessar</Link>
+
+    # Navegando pro Detalhe
+
+Buscar os dados dos produtos na API e exibi-los em tela, dentro da src/pages/produtc/index.js
+
+- Buscando os dados do produto:
+  criar variável product no state;
+  preencher o
+
+  product{} -> método componentDidMount()
+
+        api.get('product/${id}')
+
+- Preencher os dados do produto
+
+  this.setState({ product: response.data});
+
+- Mostrar os dados no render
+
+  const { product } = this.state;
+
+  return
+
+  product.title, product.description,
+
+  e
+
+      URL: <a href={product.URL}>{product.URL}</a>
+
+- Estilizar
+
+## Princípios básicos do React neste curso
+
+- Componentização;
+
+- Roteamento com react-router;
+
+- Ciclos de vida 'componentDidMount()';
+
+- Utilização de API;
+
+- Utilização do state;
+
+- Utilização de propriedades.
