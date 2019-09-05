@@ -2,7 +2,7 @@
 
     $ yarn global add create-react-app
 
-    $ create-react-app
+    $ create-react-app nomedaPasta
 
 O create-react-app vem com a transpilação configurada. Então não é preciso se preocupar em configurar Babel e Webpack.
 
