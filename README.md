@@ -4,21 +4,21 @@ Este Readme consiste em um passo a passo das aulas do curso Starter ReactJs da R
 
 ## ReactJs
 
-    É biblioteca que nãoi faz mais que o Javascript puro. Porém, o faz de forma mais organizada. Serve para manipular a DOM. É muito utilizado para construção de SPA.
+É uma biblioteca que não faz mais que o Javascript puro porém, o faz de forma mais organizada. Serve para manipular a DOM. É muito utilizado para construção de SPA.
 
-    Com o uso do React o back end não vai retornar os dados já formatados. Vai retorná-los em formato de JSON. Estrutura de dados que seja legível para ser utilizada em formnato de API Rest. então o back end da aplicação vai estar totalmente separado do front end. O front end vai consumir os dados do back end para conseguir montar a interface e mostrar as informações para o usuário.
+Com o uso do React o back end não vai retornar os dados já formatados. Vai retorná-los em formato de JSON. Estrutura de dados que seja legível para ser utilizada em formnato de API Rest. então o back end da aplicação vai estar totalmente separado do front end. O front end vai consumir os dados do back end para conseguir montar a interface e mostrar as informações para o usuário.
 
-    Isso traz muita flexibilidade para trabalharmos com a parte interativa da aplicação, como por exemplo permitir que o usuário carregue algo na tela. Além de deixar o front end bastante organizado, pois utiliza a componentização.
+Isso traz muita flexibilidade para trabalharmos com a parte interativa da aplicação, como por exemplo permitir que o usuário carregue algo na tela. Além de deixar o front end bastante organizado, pois utiliza a componentização.
 
-    #### sintaxe
+#### sintaxe
 
-    Conforme é mostrado na documentação oficial do React, quase todos os componentes vão ser em formato de classe. A classe vai extender o Component que tem na classe React.
+Conforme é mostrado na documentação oficial do React, quase todos os componentes vão ser em formato de classe. A classe vai extender o Component que tem na classe React.
 
-    Tem o método obrigatório render() que renderiza um arquivo JSX.
+Tem o método obrigatório render() que renderiza um arquivo JSX.
 
-    O JSX tem a sintaxe parecida com o HTML mas permite mostrar variáveis e incluir código Javascript dentro do HTML.
+O JSX tem a sintaxe parecida com o HTML mas permite mostrar variáveis e incluir código Javascript dentro do HTML.
 
-    A função ReactDom.render() vai renderizar o componente
+A função ReactDom.render() vai renderizar o componente
 
 ## Criando Projeto
 
